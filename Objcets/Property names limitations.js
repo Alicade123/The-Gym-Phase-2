@@ -3,7 +3,7 @@ let obj = {
   let: 10,
   return: 8,
 };
-console.log(obj.for + obj.let + obj.return);
+console.log(obj.for + obj.let + obj.return); // 30
 
 let obj2 = {
   0: "test", // same as "0": "test"

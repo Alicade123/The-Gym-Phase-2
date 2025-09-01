@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  /* justify-content: center;
+  align-content: center; */
+  justify-items: center;
+  align-items: center;
+}
+.box-1 {
+  height: 120px;
+  width: 120px;
+  background-color: skyblue;
+  border: 1px solid black;
+}

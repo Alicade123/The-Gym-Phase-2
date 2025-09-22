@@ -18,3 +18,5 @@ console.log(typeof Plane);
 
 const AlicadeEngines = new Plane(6);
 AlicadeEngines.startEngine();
+const AbiturijeEngines = new Plane(6);
+AbiturijeEngines.startEngine();

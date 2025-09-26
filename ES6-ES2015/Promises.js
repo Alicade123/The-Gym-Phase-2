@@ -82,18 +82,78 @@
 // grandParentCooking();
 
 //Video 3: https://www.youtube.com/watch?v=AUCavCH7FTw&list=PLIJrr73KDmRyCanrlIS8PEOF0kPKgI8jN&t=800s
-// Example 6: useCallback
+// Example 6: Callback Fn
 
-function orderPizza(flavor, type, callback) {
-  console.log(`The ${flavor} ${type} is ordered`);
+// function orderPizza(flavor, type, callback) {
+//   console.log(`The ${flavor} ${type} is ordered`);
 
-  setTimeout(function () {
-    const msg = `The ${flavor} ${type} is ready`;
-    // console.log(msg);
-    callback(msg);
-  }, 3000);
-}
+//   setTimeout(function () {
+//     const msg = `The ${flavor} ${type} is ready`;
+//     // console.log(msg);
+//     callback(msg);
+//   }, 3000);
+// }
 
-orderPizza("Margherita", "Greekpizza", function (msg) {
-  console.log(msg);
+// orderPizza("Margherita", "Greekpizza", function (msg) {
+//   console.log(msg);
+// });
+
+//video 4: https://www.youtube.com/watch?v=54dnv1ha3sw&list=PLIJrr73KDmRyCanrlIS8PEOF0kPKgI8jN&t=2s
+//Example 7: Promise Chaining
+
+// 3 implementation that you can perform inside then() method
+const getUserPromise = new Promise(function (resolove, reject) {
+  const user = {
+    name: "Alicade ABITURIJE",
+    email: "abiturije1alicade@gmail.com",
+    password: "wordpass",
+    company: "The Gym",
+    permissions: ["Admin", "hr", "dev"],
+  };
+  resolove(user);
 });
+
+getUserPromise
+  .then((user) => {
+    console.log(user.name);
+    //1. Return another promise inside then()
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        resolve("Kigali - Rwanda");
+      }, 2000);
+    });
+    //2. Retrun synchronous value inside then()
+    return user.email;
+    // 3. Throw error inside then()
+    if (user.permissions.includes("hr")) throw new Error("You're not allowed");
+  })
+
+  .then(function (address) {
+    console.log(`The user address is ${address}`);
+  })
+  //   .then(function (email) {
+  //     console.log(`The user email is ${email}`);
+  //   })
+  .catch(function (err) {
+    console.log(err.message);
+  });
+
+//Real promise chainig
+
+const number = new Promise((resolve, reject) => {
+  resolve(10);
+});
+
+number
+  .then((value) => {
+    value++;
+    return value;
+  })
+  .then((value2) => {
+    value2 = value2 + 10;
+    return value2;
+  })
+  .then((value3) => {
+    value3 = value3 + 20;
+    console.log(value3);
+  });

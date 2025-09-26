@@ -20,7 +20,22 @@
 // }
 // f3();
 
-// Example 3: Async
+// // Example 3: Async
+// function f1() {
+//   console.log("f1");
+// }
+// function f2() {
+//   console.log("f2");
+// }
+// function main() {
+//   console.log("main");
+//   setTimeout(f1, 0);
+//   f2();
+// }
+// main();
+
+//Example 4: Async within Promise
+
 function f1() {
   console.log("f1");
 }
@@ -29,9 +44,13 @@ function f2() {
 }
 function main() {
   console.log("main");
-
+  //web APIs
   setTimeout(f1, 0);
-
+  //promise
+  new Promise(function (resolve, reject) {
+    resolve("I am the resolved promise! ");
+  }).then((results) => console.log(results));
+  //regular function
   f2();
 }
 

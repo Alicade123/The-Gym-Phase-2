@@ -58,3 +58,24 @@
 // main();
 
 //  // video2: https://www.youtube.com/watch?v=rdVG85LGsVE&list=PLIJrr73KDmRyCanrlIS8PEOF0kPKgI8jN
+
+const promise = new Promise((resolve, reject) => {
+  //   //Resolve
+  //   const value = "water";
+  //   resolve(value);
+  //Reject
+  reject(new Error("The Jack and Jill has fallen down on mountain"));
+});
+
+function grandParentCooking() {
+  promise
+    .then(function (result) {
+      console.log(`The ${result} is available you're able to cook!!!`);
+    })
+    .catch(function (error) {
+      console.log(`Opps: ${error.message}`);
+    })
+    .finally(() => console.log("Developed by : Alicade"));
+}
+
+grandParentCooking();

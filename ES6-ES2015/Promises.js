@@ -101,59 +101,105 @@
 //video 4: https://www.youtube.com/watch?v=54dnv1ha3sw&list=PLIJrr73KDmRyCanrlIS8PEOF0kPKgI8jN&t=2s
 //Example 7: Promise Chaining
 
-// 3 implementation that you can perform inside then() method
-const getUserPromise = new Promise(function (resolove, reject) {
-  const user = {
-    name: "Alicade ABITURIJE",
-    email: "abiturije1alicade@gmail.com",
-    password: "wordpass",
-    company: "The Gym",
-    permissions: ["Admin", "hr", "dev"],
+// // 3 implementation that you can perform inside then() method
+// const getUserPromise = new Promise(function (resolove, reject) {
+//   const user = {
+//     name: "Alicade ABITURIJE",
+//     email: "abiturije1alicade@gmail.com",
+//     password: "wordpass",
+//     company: "The Gym",
+//     permissions: ["Admin", "hr", "dev"],
+//   };
+//   resolove(user);
+// });
+
+// getUserPromise
+//   .then((user) => {
+//     console.log(user.name);
+//     //1. Return another promise inside then()
+//     return new Promise(function (resolve, reject) {
+//       setTimeout(function () {
+//         resolve("Kigali - Rwanda");
+//       }, 2000);
+//     });
+//     //2. Retrun synchronous value inside then()
+//     return user.email;
+//     // 3. Throw error inside then()
+//     if (user.permissions.includes("hr")) throw new Error("You're not allowed");
+//   })
+
+//   .then(function (address) {
+//     console.log(`The user address is ${address}`);
+//   })
+//   //   .then(function (email) {
+//   //     console.log(`The user email is ${email}`);
+//   //   })
+//   .catch(function (err) {
+//     console.log(err.message);
+//   });
+
+// //Real promise chainig
+
+// const number = new Promise((resolve, reject) => {
+//   resolve(10);
+// });
+
+// number
+//   .then((value) => {
+//     value++;
+//     return value;
+//   })
+//   .then((value2) => {
+//     value2 = value2 + 10;
+//     return value2;
+//   })
+//   .then((value3) => {
+//     value3 = value3 + 20;
+//     console.log(value3);
+//   });
+
+//the finally() demo
+// const promiseZ = new Promise(function (resolve, reject) {
+//   resolve("Testing the finally");
+//   const user = "alicade";
+// })
+//   .finally(function () {
+//     console.log("Cleaned Up!!!");
+//   })
+//   .then(function (resolve) {
+//     console.log(resolve);
+//   });
+
+//video5 : https://www.youtube.com/watch?v=CP0CqAkY-Zs&list=PLIJrr73KDmRyCanrlIS8PEOF0kPKgI8jN&t=1s
+//Async & await
+
+//example 8:
+
+//example 9: Async , await try & catch
+
+const validateUser = ({ userId, password }) => {
+  return new Promise((resolve, reject) => {
+    if (userId && password) {
+      resolve("You're authenticated!!!");
+    } else {
+      reject(new Error("Missing userId or password"));
+    }
+  });
+};
+
+const app = async () => {
+  const data = {
+    userId: "22RP07269",
+    password: "12345",
   };
-  resolove(user);
-});
+  try {
+    const results = await validateUser(data);
+    console.log(results);
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+    console.log("Developed by Alicade");
+  }
+};
 
-getUserPromise
-  .then((user) => {
-    console.log(user.name);
-    //1. Return another promise inside then()
-    return new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        resolve("Kigali - Rwanda");
-      }, 2000);
-    });
-    //2. Retrun synchronous value inside then()
-    return user.email;
-    // 3. Throw error inside then()
-    if (user.permissions.includes("hr")) throw new Error("You're not allowed");
-  })
-
-  .then(function (address) {
-    console.log(`The user address is ${address}`);
-  })
-  //   .then(function (email) {
-  //     console.log(`The user email is ${email}`);
-  //   })
-  .catch(function (err) {
-    console.log(err.message);
-  });
-
-//Real promise chainig
-
-const number = new Promise((resolve, reject) => {
-  resolve(10);
-});
-
-number
-  .then((value) => {
-    value++;
-    return value;
-  })
-  .then((value2) => {
-    value2 = value2 + 10;
-    return value2;
-  })
-  .then((value3) => {
-    value3 = value3 + 20;
-    console.log(value3);
-  });
+app();

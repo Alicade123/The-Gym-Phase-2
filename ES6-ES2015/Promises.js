@@ -59,6 +59,7 @@
 
 //  // video2: https://www.youtube.com/watch?v=rdVG85LGsVE&list=PLIJrr73KDmRyCanrlIS8PEOF0kPKgI8jN
 
+//Example5: Promise and handler methods
 const promise = new Promise((resolve, reject) => {
   //   //Resolve
   //   const value = "water";

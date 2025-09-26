@@ -173,28 +173,29 @@
 //video5 : https://www.youtube.com/watch?v=CP0CqAkY-Zs&list=PLIJrr73KDmRyCanrlIS8PEOF0kPKgI8jN&t=1s
 //Async & await
 
-//example 8:
-async function userInfo(name, email, telephone) {
-  return [name, email, telephone];
-}
+// //example 8:
+// async function userInfo(name, email, telephone) {
+//   return [name, email, telephone];
+// }
 
-async function caller() {
-  const user1 = {
-    name: "Alicade",
-    email: "abiturije1alicade@gmail.com",
-    tel: "+250782583016",
-  };
-  const user2 = {
-    name: "Ange",
-    email: "angee@gmail.com",
-    tel: "+250789052944",
-  };
-  const msg = await userInfo(user1.name, user1.email, user1.tel);
-  const msg2 = await userInfo(user2.name, user2.email, user2.tel);
-  console.log(msg);
-  console.log(msg2);
-}
-caller();
+// async function caller() {
+//   const user1 = {
+//     name: "Alicade",
+//     email: "abiturije1alicade@gmail.com",
+//     tel: "+250782583016",
+//   };
+//   const user2 = {
+//     name: "Ange",
+//     email: "angee@gmail.com",
+//     tel: "+250789052944",
+//   };
+//   const msg = await userInfo(user1.name, user1.email, user1.tel);
+//   const msg2 = await userInfo(user2.name, user2.email, user2.tel);
+//   console.log(msg);
+//   console.log(msg2);
+// }
+// caller();
+
 // //example 9: Async , await try & catch
 
 // const validateUser = ({ userId, password }) => {

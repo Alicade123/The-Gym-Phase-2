@@ -174,32 +174,52 @@
 //Async & await
 
 //example 8:
+async function userInfo(name, email, telephone) {
+  return [name, email, telephone];
+}
 
-//example 9: Async , await try & catch
-
-const validateUser = ({ userId, password }) => {
-  return new Promise((resolve, reject) => {
-    if (userId && password) {
-      resolve("You're authenticated!!!");
-    } else {
-      reject(new Error("Missing userId or password"));
-    }
-  });
-};
-
-const app = async () => {
-  const data = {
-    userId: "22RP07269",
-    password: "12345",
+async function caller() {
+  const user1 = {
+    name: "Alicade",
+    email: "abiturije1alicade@gmail.com",
+    tel: "+250782583016",
   };
-  try {
-    const results = await validateUser(data);
-    console.log(results);
-  } catch (error) {
-    console.log(error.message);
-  } finally {
-    console.log("Developed by Alicade");
-  }
-};
+  const user2 = {
+    name: "Ange",
+    email: "angee@gmail.com",
+    tel: "+250789052944",
+  };
+  const msg = await userInfo(user1.name, user1.email, user1.tel);
+  const msg2 = await userInfo(user2.name, user2.email, user2.tel);
+  console.log(msg);
+  console.log(msg2);
+}
+caller();
+// //example 9: Async , await try & catch
 
-app();
+// const validateUser = ({ userId, password }) => {
+//   return new Promise((resolve, reject) => {
+//     if (userId && password) {
+//       resolve("You're authenticated!!!");
+//     } else {
+//       reject(new Error("Missing userId or password"));
+//     }
+//   });
+// };
+
+// const app = async () => {
+//   const data = {
+//     userId: "22RP07269",
+//     password: "12345",
+//   };
+//   try {
+//     const results = await validateUser(data);
+//     console.log(results);
+//   } catch (error) {
+//     console.log(error.message);
+//   } finally {
+//     console.log("Developed by Alicade");
+//   }
+// };
+
+// app();
